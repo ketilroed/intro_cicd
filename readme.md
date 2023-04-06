@@ -57,3 +57,61 @@ This is a combination of create and start. It will create a new container with a
 Provide a name and automatically delete container when stopped
 
 ```docker run --name my-container --rm my-image```
+
+
+## Simple test demonstration
+
+The main.c file contains the code that we want to test.
+
+```docker build -t my-image .```
+
+Run the image.
+
+```
+$ docker run --rm my-image
+Building...
+
+
+Running...
+Output:  Hello, world!
+
+All tests pasted!
+```
+
+Check return code from Docker
+
+```
+$ echo $?
+0
+```
+
+This command returns the exit status of the last command run in the terminal. ```$?``` is useful in shellscripts as a way to decide what to do depending on how the previous command worked (checking the exit status). We can expect that the exit status is 0 when the previous command worked (finished successfully), otherwise a non-zero numerical value.
+
+
+## Simple test demonstration with error
+Modify the main.c removing the semicolon after the printf command. 
+
+```
+docker rmi my-image
+docker build -t my-image .
+docker run --rm my-image
+
+Building...
+
+/tests/main.c: In function ‘main’:
+/tests/main.c:4:30: error: expected ‘;’ before ‘return’
+    4 |     printf("Hello, world!\n")
+      |                              ^
+      |                              ;
+    5 |     return 0; //Docker will use this return to accomplish the automated testing.
+      |     ~~~~~~                    
+
+Compilation failed.
+```
+
+Check return code
+
+```
+$ echo $? 
+1
+```

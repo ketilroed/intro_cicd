@@ -1,7 +1,7 @@
 import os, subprocess
 
 # Settings
-TEST_DIR = "/part2"     # Directory with out program
+TEST_DIR = "."     # Directory with out program
 CODE_FILE ="main.c"     # Our C code
 COMPILER_TIMEOUT = 10.0 # Compiler timout (seconds)
 RUN_TIMEOUT = 10.0      # Run timout (seconds)

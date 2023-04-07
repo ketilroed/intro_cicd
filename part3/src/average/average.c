@@ -4,7 +4,7 @@ float average(float arr[], unsigned int size){
 
     if (size == 0)
     {
-        return 1.0;
+        return 0;
     }
 
     float total = 0;

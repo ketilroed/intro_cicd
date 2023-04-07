@@ -43,3 +43,13 @@ $(NAME): $(COBJECTS)
 .PHONY: clean
 clean:
 	rm -f $(COBJECTS)
+
+# Run test
+.PHONY: test
+test:
+	make -C ${TEST_DIR}
+
+# Clean tests
+.PHONY: test_clean
+test_clean:
+	make -C ${TEST_DIR} clean

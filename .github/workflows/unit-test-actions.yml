@@ -12,7 +12,7 @@ jobs:
 
       - name: Build docker image
         run: | 
-          cd Part3
+          cd part3
           docker build -t unit-tests-image -f Dockerfile .
 
       - name: Run image

@@ -6,7 +6,7 @@ jobs:
   docker-unit-tests:
     runs-on: ubuntu-latest
     name: Build and run unit tests Docker image
-    setps:
+    steps:
       - name: Check out this repo
         uses: actions/checkout@v3
 

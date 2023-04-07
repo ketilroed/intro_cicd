@@ -2,8 +2,8 @@
 FROM ubuntu:22.04
 
 # Install build tools
-RUN apt update && \
-    apt install -y git build-essential autoconf automake libtool
+RUN apt-get update && \
+    apt-get install -y git build-essential autoconf automake libtool
 
 # Copy project into image
 RUN mkdir /project
